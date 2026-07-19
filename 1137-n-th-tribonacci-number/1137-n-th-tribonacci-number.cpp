@@ -1,0 +1,14 @@
+class Solution {
+public:
+    vector<int> dp;
+    int tribo(int n, vector<int>& dp){
+        if(n==2) return 1;
+        if(n<2) return n;
+        if(dp[n]!=-1) return dp[n];
+        return dp[n] = tribo(n-1, dp)+tribo(n-2, dp)+tribo(n-3, dp);
+    }
+    int tribonacci(int n) {
+        dp.resize(n+1,-1);
+        return tribo(n, dp);
+    }
+};
